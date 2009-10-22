@@ -1,0 +1,23 @@
+div.scroller{
+  width:980px; /* choose any width you want */
+  height:260px; /* choose any height you want */
+  overflow:hidden;
+  margin:36px 0 36px 0; /* take this or leave it */
+}
+
+div.scroller li.section{
+  width:980px; /* should be the same as the div.scroller width above */
+  height: 260px; /* should be the same as the div.scroller height above */
+  overflow:hidden;
+  float:left; /* required to make the slider go from left to right. Without this it slides vertically */
+}
+
+div.scroller div.content{
+  width:10000px;  /* so we can still see all the things we're scrolling through. The width may need to be adjusted depending on how much content you have */
+}
+
+.product_rotator_spacer{
+  display:inline-block;
+  width:175px;
+  height:260px;'
+}

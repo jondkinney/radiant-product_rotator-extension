@@ -22,7 +22,9 @@
         <div style="clear:both;">&nbsp;</div>
       <% end %>
       
-      <a id="show_upload" href="#" onClick="$('product_file_upload_links').toggle();this.toggle();">Edit product images</a>
+      <% unless @product.new_record? %>
+        <a id="show_upload" href="#" onClick="$('product_file_upload_links').toggle();this.toggle();">Edit product images</a>
+      <% end %>
 
       <div id="product_file_upload_links" style="<%= @product.new_record? ? "" : "display:none;" %>">
         <p class="image">
