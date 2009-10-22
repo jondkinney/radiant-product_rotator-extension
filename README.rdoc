@@ -6,6 +6,8 @@ This was created out of a specific need for a client. If you find it useful that
 
 Some manual setup
 
+This extension requires the paperclip gem to be installed on the server to handle file uploads. At some point I'll freeze it into this extension to remove the external dependency.
+
 === Download the glider.js file
 
   http://pastie.textmate.org/664567
