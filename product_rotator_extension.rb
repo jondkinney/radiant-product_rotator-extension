@@ -15,5 +15,6 @@ class ProductRotatorExtension < Radiant::Extension
   def activate
     admin.nav[:content] << admin.nav_item(:product_rotator, "Product Rotator", "/admin/products")
     Page.send :include, ProductRotatorTags
+    Page.send :include, ProductRotatorJS
   end
 end
