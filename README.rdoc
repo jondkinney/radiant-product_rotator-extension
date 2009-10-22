@@ -83,5 +83,5 @@ It is important to change the width of the scroller to meet your needs. If your 
   
 ==TODO
 
-* Add configuration options that tie into the settings extension
-* See if I can automatically include the javascript files with a before_filter like the bespin editor extension
+* Add configuration options that tie into the settings extension.
+* See if I can automatically include the javascript files with a before_filter like the bespin editor extension.
