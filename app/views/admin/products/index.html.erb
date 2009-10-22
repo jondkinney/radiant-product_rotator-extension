@@ -1,0 +1,50 @@
+<% include_stylesheet 'admin/products/products' %>
+
+<h1>Products</h1>
+
+<p>You can enter product images here, which will show up on the public side of the home page.</p>
+
+<table cellspacing="0" cellpadding="0" border="0" class="index" id="links">
+
+  <thead>
+    <tr>
+      <th style="text-align:left;padding:0 0 0 9px;" whitespace="nowrap" class="product">Product</th>
+      <th style="text-align:center;" whitespace="nowrap" class="product">Thumb</th>
+      <th style="text-align:center;" whitespace="nowrap" class="product">Link</th>
+      <th style="text-align:center;" whitespace="nowrap" class="product">Position</th>
+      <th style="text-align:center;" whitespace="nowrap" class="product_enabled">Enabled?</th>
+      <th style="text-align:center;width:100px;" whitespace="nowrap" colspan="2" class="modify">Modify</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr class="node level-1">
+        <td class="product" style="width:200px;" style="text-align:center;">
+          <%= image_tag product.image.url(:thumb) %>
+        </td>
+        <td class="product_thumb" style="width:60px;" style="text-align:center;">
+          <%= image_tag product.image_thumb.url(:thumb) %>
+        </td>
+        <td style="text-align:center;">
+          <%= link_to product.name.to_s, product.link, :target => "_blank" %>
+        </td>
+        <td style="text-align:center;">
+          <%= product.position.to_s %>
+        </td>
+        <td class="product_enabled" style="text-align:center;">
+          <%= product.enabled ? "Enabled" : "Disabled" %>
+        </td>
+        <td style="text-align:center;">
+          <%= link_to "Edit", edit_admin_product_url(:id => product.id) %>
+        </td>
+        <td class="remove" style="text-align:center;">
+          <%= link_to image('remove', :alt => 'Remove Product'), remove_admin_product_url(:id => product.id) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<p><%= link_to image("links/new-product", :alt => "New Product"), {:action => :new} %></p>
