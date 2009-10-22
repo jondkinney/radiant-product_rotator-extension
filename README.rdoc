@@ -1,0 +1,59 @@
+=A rotating product catalog for a home page
+
+This was created out of a specific need for a client. If you find it useful that is great. I plan to allow easy installation very soon, but for now there are a few things you'll have to setup manually. Sorry :-)
+
+== Installation
+
+Some manual setup
+
+=== Download the glider.js file
+
+  http://pastie.textmate.org/664567
+  
+=== Link to the glider.js file and it's 2 prototype dependencies
+
+  <script type="text/javascript" src="/javascripts/admin/prototype.js"></script>
+  <script type="text/javascript" src="/javascripts/admin/effects.js"></script>
+  <script type="text/javascript" src="/javascripts/glider.js"></script>
+
+=== Setup the <r:products:each /> tag (this exact html structure is required if you don't want to modify the glider.js file)
+
+  <div id="my-glider">
+    <div class="scroller">
+      <div class="content">
+        <ul>
+          <r:products:each>
+            <r:product />
+          </r:products:each>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+  <script type="text/javascript" charset="utf-8">
+    //<![CDATA[
+      var my_glider = new Glider('my-glider', {autoGlide: true, frequency: 5});
+    //]]>
+  </script>
+
+=== Create some styles in your stylesheet
+
+  div.scroller{
+    width:980px;
+    height:260px;
+    overflow:hidden;
+    margin:36px 0 36px 0;
+  }
+
+  div.scroller li.section{
+    width:980px; 
+    height: 260px;
+    overflow:hidden;
+    float:left;
+  }
+
+  div.scroller div.content{
+    width:10000px;
+  }
+
+=== Laugh at the current inflexibility of this plugin!
