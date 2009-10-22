@@ -57,3 +57,11 @@ Some manual setup
   }
 
 === Laugh at the current inflexibility of this plugin!
+
+=== Note some hard coded goodness (er, terribleness... either way)
+
+  The plugin will look for 2 files named "left_arrow.png" and "right_arrow.png" in your "/images" folder.
+  
+  In the /app/models/product_rotator_tags.rb file I create the <r:products:each> loop with some hard coded values. I'll be extracting these and making it generic at some point, but for now I have a div in there that was the specific width and height I needed for when a left or right thumbnail and respective arrow were not needed. This happens for the very first and very last product in the array. You'll want to modify that so it is the right width for you.
+  
+  Also in that same file, it's all on one line because if I broke out the links and images to separate lines in the HTML then it put whitespace in the view. It's harder to maintain, but works properly on the front end.
