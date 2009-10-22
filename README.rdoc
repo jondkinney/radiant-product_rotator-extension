@@ -45,11 +45,11 @@ The above tag will create the following HTML structure and JavaScript
   </script>
   
 The <r:product /> tag (in the structure above) iterates over each of the products defined in the admin interface and does the following: 
-*Places a thumbnail to the left of the current product for the previous product (as determined by the position attribute)
-*Places an arrow image that points left which advances the glider one step back and stops the auto-rotation (this image is included and located at /images/admin/left_arrow.png)
-*Places the current product's main image as a clickable link with a path defined by the current product's link attribute
-*Places an arrow image that points right which advances the glider one step forward and stops the auto-rotaion (this image is included and located at /images/admin/right_arrow.png)
-*Places a thumbnail to the right of the current product for the next product (as determined by the position attribute)
+  *Places a thumbnail to the left of the current product for the previous product (as determined by the position attribute)
+  *Places an arrow image that points left which advances the glider one step back and stops the auto-rotation (this image is included and located at /images/admin/left_arrow.png)
+  *Places the current product's main image as a clickable link with a path defined by the current product's link attribute
+  *Places an arrow image that points right which advances the glider one step forward and stops the auto-rotaion (this image is included and located at /images/admin/right_arrow.png)
+  *Places a thumbnail to the right of the current product for the next product (as determined by the position attribute)
 
 You should leave the id's and classes as is and just modify the css file at: /stylesheets/admin/product_rotator.css
 
@@ -82,6 +82,5 @@ It is important to change the width of the scroller to meet your needs. If your 
   }
   
 ==TODO
-
-*Add configuration options that tie into the settings extension
-*See if I can automatically include the javascript files with a before_filter like the bespin editor extension
+  *Add configuration options that tie into the settings extension
+  *See if I can automatically include the javascript files with a before_filter like the bespin editor extension
