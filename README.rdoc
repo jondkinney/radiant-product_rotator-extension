@@ -12,6 +12,7 @@ Otherwise manually clone this git repository in your radiant's /vendor/extension
 
   git clone git://github.com/j2fly/radiant-product-gallery-extension.git vendor/extensions/product_rotator
   
+== 
 
 === Be sure to link to the glider.js file and it's 2 prototype dependencies in your layout's <head> section
 
