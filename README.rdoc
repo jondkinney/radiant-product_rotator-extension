@@ -1,24 +1,30 @@
 =A rotating product catalog for a home page
 
-This was created out of a specific need for a client. If you find it useful that is great. I plan to allow easy installation very soon, but for now there are a few things you'll have to setup manually. Sorry :-)
+This was created out of a specific need for a client. If you find it useful that is great. If you would like to fork it and change the implementation, that is also great. Hopefully you think this extension is great!
 
 == Installation
 
-Some manual setup
+If you have the ray extension installed you can use it to install this plugin with the following command:
 
-This extension requires the paperclip gem to be installed on the server to handle file uploads. At some point I'll freeze it into this extension to remove the external dependency.
-
-=== Download the glider.js file
-
-  http://pastie.textmate.org/664567
+  rake ray:extension:install name='product-gallery' hub='j2fly'
   
-=== Link to the glider.js file and it's 2 prototype dependencies in your layout's <head> section
+Otherwise manually clone this git repository in your radiant's /vendor/extensions folder with the following command
+
+  git clone git://github.com/j2fly/radiant-product-gallery-extension.git vendor/extensions/product_rotator
+  
+
+=== Be sure to link to the glider.js file and it's 2 prototype dependencies in your layout's <head> section
 
   <script type="text/javascript" src="/javascripts/admin/prototype.js"></script>
   <script type="text/javascript" src="/javascripts/admin/effects.js"></script>
   <script type="text/javascript" src="/javascripts/glider.js"></script>
 
-=== Setup the <r:products:each /> tag (this exact html structure is required if you don't want to modify the glider.js file)
+
+=== Call out to the product_rotator tag in a page part or snippet or layout
+
+  <r:product_rotator />
+  
+The above tag will create the following HTML structure and JavaScript
 
   <div id="my-glider">
     <div class="scroller">
@@ -37,33 +43,45 @@ This extension requires the paperclip gem to be installed on the server to handl
       var my_glider = new Glider('my-glider', {autoGlide: true, frequency: 5});
     //]]>
   </script>
+  
+The <r:product /> tag (in the structure above) iterates over each of the products defined in the admin interface and does the following: 
+*Places a thumbnail to the left of the current product for the previous product (as determined by the position attribute)
+*Places an arrow image that points left which advances the glider one step back and stops the auto-rotation (this image is included and located at /images/admin/left_arrow.png)
+*Places the current product's main image as a clickable link with a path defined by the current product's link attribute
+*Places an arrow image that points right which advances the glider one step forward and stops the auto-rotaion (this image is included and located at /images/admin/right_arrow.png)
+*Places a thumbnail to the right of the current product for the next product (as determined by the position attribute)
 
-=== Create some styles in your stylesheet
+You should leave the id's and classes as is and just modify the css file at: /stylesheets/admin/product_rotator.css
+
+It is important to change the width of the scroller to meet your needs. If your images get too wide the scroller will wrap to the next line and look terrible.
+
+=== The included styles look like this:
 
   div.scroller{
-    width:980px;
-    height:260px;
-    overflow:hidden;
-    margin:36px 0 36px 0;
+    width:980px; /* choose any width you want */
+    height:260px; /* choose any height you want */
+    overflow:hidden; /* REQUIRED AS IS */
+    margin:36px 0 36px 0; /* take this or leave it, I needed it to make my page look good */
   }
 
   div.scroller li.section{
-    width:980px; 
-    height: 260px;
-    overflow:hidden;
-    float:left;
+    width:980px; /* should be the same as the div.scroller width above */
+    height: 260px; /* should be the same as the div.scroller height above */
+    overflow:hidden; /* REQUIRED AS IS */
+    float:left; /* required to make the slider go from left to right. Without this it slides vertically */
   }
 
   div.scroller div.content{
-    width:10000px;
+    width:10000px;  /* so we can still see all the things we're scrolling through. The width may need to be adjusted depending on how much content you have */
   }
 
-=== Laugh at the current inflexibility of this plugin!
+  .product_rotator_spacer{
+    display:inline-block;
+    width:175px; /* should be how ever wide a thumbnail + left_arrow.png image is */
+    height:260px;' /* the height of your main rotating images */
+  }
+  
+==TODO
 
-=== Note some hard coded goodness (er, terribleness... either way)
-
-The plugin will look for 2 files named "left_arrow.png" and "right_arrow.png" in your "/images" folder.
-
-In the /app/models/product_rotator_tags.rb file I create the <r:products:each> loop with some hard coded values. I'll be extracting these and making it generic at some point, but for now I have a div in there that was the specific width and height I needed for when a left or right thumbnail and respective arrow were not needed. This happens for the very first and very last product in the array. You'll want to modify that so it is the right width for you.
-
-Also in that same file, it's all on one line because if I broke out the links and images to separate lines in the HTML then it put whitespace in the view. It's harder to maintain, but works properly on the front end.
+*Add configuration options that tie into the settings extension
+*See if I can automatically include the javascript files with a before_filter like the bespin editor extension

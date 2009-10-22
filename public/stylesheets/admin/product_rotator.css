@@ -1,14 +1,14 @@
 div.scroller{
   width:980px; /* choose any width you want */
   height:260px; /* choose any height you want */
-  overflow:hidden;
-  margin:36px 0 36px 0; /* take this or leave it */
+  overflow:hidden; /* REQUIRED AS IS */
+  margin:36px 0 36px 0; /* take this or leave it, I needed it to make my page look good */
 }
 
 div.scroller li.section{
   width:980px; /* should be the same as the div.scroller width above */
   height: 260px; /* should be the same as the div.scroller height above */
-  overflow:hidden;
+  overflow:hidden; /* REQUIRED AS IS */
   float:left; /* required to make the slider go from left to right. Without this it slides vertically */
 }
 
@@ -18,6 +18,6 @@ div.scroller div.content{
 
 .product_rotator_spacer{
   display:inline-block;
-  width:175px;
-  height:260px;'
+  width:175px; /* should be how ever wide a thumbnail + left_arrow.png image is */
+  height:260px;' /* the height of your main rotating images */
 }
