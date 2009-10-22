@@ -6,11 +6,11 @@ This was created out of a specific need for a client. If you find it useful that
 
 If you have the ray extension installed you can use it to install this plugin with the following command:
 
-  rake ray:extension:install name='product-gallery' hub='j2fly'
+  rake ray:extension:install name='product_rotator' hub='j2fly'
   
 Otherwise manually clone this git repository in your radiant's /vendor/extensions folder with the following command
 
-  git clone git://github.com/j2fly/radiant-product-gallery-extension.git vendor/extensions/product_rotator
+  git clone git://github.com/j2fly/radiant-product_rotator-extension.git vendor/extensions/product_rotator
   
 
 === Be sure to link to the glider.js file, it's 2 prototype dependencies, and the product_rotator.css file in your layout's <head> section
