@@ -13,12 +13,12 @@ Otherwise manually clone this git repository in your radiant's /vendor/extension
   git clone git://github.com/j2fly/radiant-product-gallery-extension.git vendor/extensions/product_rotator
   
 
-=== Be sure to link to the glider.js file and it's 2 prototype dependencies in your layout's <head> section
+=== Be sure to link to the glider.js file, it's 2 prototype dependencies, and the product_rotator.css file in your layout's <head> section
 
   <script type="text/javascript" src="/javascripts/admin/prototype.js"></script>
   <script type="text/javascript" src="/javascripts/admin/effects.js"></script>
-  <script type="text/javascript" src="/javascripts/glider.js"></script>
-
+  <script type="text/javascript" src="/javascripts/admin/glider.js"></script>
+  <link rel="stylesheet" href="/stylesheets/admin/product_rotator.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 
 === Call out to the product_rotator tag in a page part or snippet or layout
 
