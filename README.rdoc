@@ -10,7 +10,7 @@ Some manual setup
 
   http://pastie.textmate.org/664567
   
-=== Link to the glider.js file and it's 2 prototype dependencies
+=== Link to the glider.js file and it's 2 prototype dependencies in your layout's <head> section
 
   <script type="text/javascript" src="/javascripts/admin/prototype.js"></script>
   <script type="text/javascript" src="/javascripts/admin/effects.js"></script>
